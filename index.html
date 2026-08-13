@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赵奕帆 · 个人作品集 | 把复杂的事,做成确定的事</title>
+<meta name="description" content="赵奕帆个人作品集:上海交通大学硕士,6年班长,AI产品实践者,酶制剂创业项目负责人。懂AI、会带队、能落地。">
+<style>
+:root{
+  --jd-red:#E1251B;
+  --jd-red-deep:#C81623;
+  --jd-red-dark:#A01219;
+  --ink:#1F1F1F;
+  --ink-2:#4A4A4A;
+  --ink-3:#8C8C8C;
+  --bg:#FFFFFF;
+  --bg-soft:#FAF7F7;
+  --line:#F0E4E3;
+  --gold:#D9A441;
+  --radius:18px;
+  --shadow:0 10px 34px rgba(31,31,31,.08);
+  --shadow-lg:0 18px 50px rgba(193,22,35,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+section.alt{background:var(--bg-soft)}
+
+/* ---------- 导航 ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:18px;letter-spacing:.5px}
+.logo em{font-style:normal;color:var(--jd-red)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-size:14px;color:var(--ink-2);transition:color .2s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--jd-red)}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;
+  background:var(--jd-red);border-radius:2px;
+}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.3s}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding:150px 0 96px;
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(225,37,27,.10), transparent 60%),
+    radial-gradient(700px 420px at -10% 30%, rgba(217,164,65,.10), transparent 55%),
+    linear-gradient(180deg,#FFF 0%,#FFF8F7 100%);
+}
+.hero-inner{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:var(--jd-red);
+  background:rgba(225,37,27,.08);border:1px solid rgba(225,37,27,.18);
+  padding:6px 14px;border-radius:999px;letter-spacing:1px;margin-bottom:22px;
+}
+.hero h1{font-size:52px;line-height:1.22;letter-spacing:.5px;font-weight:800}
+.hero h1 .name{color:var(--jd-red)}
+.hero .slogan{
+  margin-top:14px;font-size:21px;font-weight:600;color:var(--ink-2);
+}
+.hero .slogan b{color:var(--jd-red-deep);font-weight:700}
+.hero .sub{margin-top:16px;font-size:15.5px;color:var(--ink-3);max-width:540px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tag{
+  font-size:13.5px;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);background:#fff;border-radius:999px;
+  padding:8px 16px;box-shadow:0 2px 8px rgba(0,0,0,.03);
+}
+.tag.red{background:var(--jd-red);color:#fff;border-color:var(--jd-red)}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:700;border-radius:12px;
+  padding:13px 26px;transition:.22s;cursor:pointer;
+}
+.btn-primary{background:linear-gradient(135deg,var(--jd-red),var(--jd-red-deep));color:#fff;box-shadow:0 10px 26px rgba(225,37,27,.32)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(225,37,27,.4)}
+.btn-ghost{border:1.5px solid var(--jd-red);color:var(--jd-red);background:#fff}
+.btn-ghost:hover{background:rgba(225,37,27,.06)}
+.hero-card{
+  position:relative;background:#fff;border-radius:26px;padding:26px;
+  box-shadow:var(--shadow-lg);border:1px solid var(--line);
+}
+.hero-card .avatar-wrap{position:relative;border-radius:18px;overflow:hidden}
+.hero-card .avatar-wrap::after{
+  content:"";position:absolute;inset:0;border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);
+}
+.hero-card .badge{
+  position:absolute;top:-14px;right:18px;background:var(--gold);
+  color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;
+  box-shadow:0 6px 16px rgba(217,164,65,.4);letter-spacing:1px;
+}
+.hero-card .card-info{padding:16px 6px 0;display:flex;flex-direction:column;gap:6px}
+.hero-card .card-info .row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-3)}
+.hero-card .card-info .row b{color:var(--ink);font-weight:600}
+
+/* ---------- 数字墙 ---------- */
+.stats{
+  background:linear-gradient(135deg,var(--jd-red-deep) 0%,var(--jd-red) 55%,#FF4D3A 100%);
+  padding:60px 0;color:#fff;
+}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}
+.stat .num{font-size:44px;font-weight:800;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.stat .num small{font-size:22px;font-weight:700}
+.stat .label{font-size:13.5px;opacity:.92;margin-top:6px;letter-spacing:.5px}
+.stat .note{font-size:11.5px;opacity:.72;margin-top:2px}
+
+/* ---------- 通用 section ---------- */
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-kicker{font-size:13px;font-weight:700;letter-spacing:3px;color:var(--jd-red);text-transform:uppercase}
+.sec-title{font-size:34px;font-weight:800;margin-top:10px;letter-spacing:.5px}
+.sec-sub{font-size:15px;color:var(--ink-3);margin-top:12px;max-width:620px;margin-left:auto;margin-right:auto}
+
+/* ---------- 关于我 ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-text p{font-size:15.5px;color:var(--ink-2);margin-bottom:16px}
+.about-text p b{color:var(--jd-red-deep)}
+.about-photo{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.about-photo figcaption{font-size:12px;color:var(--ink-3);padding:10px 14px;background:#fff}
+
+/* ---------- 时间线 ---------- */
+.timeline{position:relative;max-width:760px;margin:0 auto}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--jd-red),rgba(225,37,27,.15))}
+.tl-item{position:relative;padding:0 0 34px 44px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;
+  background:#fff;border:4px solid var(--jd-red);box-shadow:0 0 0 4px rgba(225,37,27,.12);
+}
+.tl-time{font-size:12.5px;font-weight:700;color:var(--jd-red);letter-spacing:1px}
+.tl-title{font-size:18px;font-weight:800;margin:4px 0 2px}
+.tl-sub{font-size:13.5px;color:var(--ink-3);margin-bottom:8px}
+.tl-body{font-size:14.5px;color:var(--ink-2)}
+
+/* ---------- 经历卡片 ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .25s, box-shadow .25s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.card-icon{
+  width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(225,37,27,.09);color:var(--jd-red);font-size:21px;font-weight:800;
+}
+.card-time{font-size:12px;font-weight:700;color:var(--jd-red);background:rgba(225,37,27,.07);padding:4px 10px;border-radius:999px}
+.card h3{font-size:17px;font-weight:800;margin-bottom:4px}
+.card .role{font-size:13px;color:var(--ink-3);margin-bottom:14px}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.card li{font-size:13.8px;color:var(--ink-2);padding-left:18px;position:relative}
+.card li::before{
+  content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;
+  background:var(--jd-red);transform:rotate(45deg);
+}
+.card li b{color:var(--jd-red-deep)}
+
+/* ---------- 项目 ---------- */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.project{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;box-shadow:var(--shadow);border-top:4px solid var(--jd-red);
+}
+.project h3{font-size:18px;font-weight:800;margin-bottom:2px}
+.project .role{font-size:12.5px;color:var(--jd-red);font-weight:700;margin-bottom:12px}
+.project p{font-size:14px;color:var(--ink-2);margin-bottom:10px}
+.project p b{color:var(--jd-red-deep)}
+.project .metrics{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.metric{
+  font-size:12.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--jd-red),var(--jd-red-deep));
+  padding:6px 13px;border-radius:999px;
+}
+
+/* ---------- 技能 ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.skill-block{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow);
+}
+.skill-block h3{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.skill-block h3::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--jd-red);transform:rotate(45deg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12.5px;font-weight:600;color:var(--ink-2);background:var(--bg-soft);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.chip.hot{background:rgba(225,37,27,.08);color:var(--jd-red);border-color:rgba(225,37,27,.2)}
+
+/* ---------- 荣誉 ---------- */
+.awards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.award{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 16px;
+  text-align:center;box-shadow:var(--shadow);
+}
+.award .ico{font-size:26px;margin-bottom:8px}
+.award .t{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.45}
+.award .d{font-size:12px;color:var(--ink-3);margin-top:4px}
+
+/* ---------- 联系 ---------- */
+.contact{
+  background:linear-gradient(160deg,#1F1F1F 0%,#2B2B2B 100%);
+  color:#fff;text-align:center;
+}
+.contact .sec-title{color:#fff}
+.contact .sec-sub{color:rgba(255,255,255,.6)}
+.contact-items{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:40px}
+.contact-item{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;padding:22px 30px;min-width:200px;transition:.25s;
+}
+.contact-item:hover{background:rgba(225,37,27,.14);border-color:rgba(225,37,27,.5)}
+.contact-item .k{font-size:12px;color:rgba(255,255,255,.55);letter-spacing:2px;margin-bottom:6px}
+.contact-item .v{font-size:17px;font-weight:700}
+.contact-qr{margin-top:44px;display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap}
+.qr-box{background:#fff;border-radius:18px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.qr-box img{width:150px;height:150px}
+.qr-box .hint{color:var(--ink-2);font-size:12px;margin-top:8px}
+.contact-note{margin-top:20px;font-size:13px;color:rgba(255,255,255,.55)}
+
+/* ---------- 页脚 ---------- */
+footer{border-top:1px solid rgba(255,255,255,.1);padding:26px 0;font-size:13px;color:rgba(255,255,255,.45);text-align:center;background:#1F1F1F}
+
+/* ---------- 动画 ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero{padding:130px 0 72px}
+  .hero h1{font-size:40px}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .cards,.skills-grid{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+  .awards{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .nav-links{
+    display:none;position:absolute;top:64px;left:0;right:0;
+    background:#fff;flex-direction:column;padding:18px 24px;gap:16px;
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+  section{padding:64px 0}
+  .hero h1{font-size:32px}
+  .hero .slogan{font-size:17px}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+  .stat .num{font-size:34px}
+  .awards{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">赵奕帆<em>·</em>作品集</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-a">关于我</a></li>
+      <li><a href="#education" class="nav-a">教育</a></li>
+      <li><a href="#experience" class="nav-a">经历</a></li>
+      <li><a href="#projects" class="nav-a">项目</a></li>
+      <li><a href="#skills" class="nav-a">技能</a></li>
+      <li><a href="#contact" class="nav-a">联系</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow">🏮 JD TET · 综合方向候选人</span>
+      <h1>你好,我是<span class="name">赵奕帆</span></h1>
+      <p class="slogan">把<b>复杂</b>的事,做成<b>确定</b>的事</p>
+      <p class="sub">上海交通大学硕士在读 · 生物信息 × 人工智能交叉方向。连续 6 年班长、AI 产品实践者、酶制剂创业项目负责人——懂 AI、会带队、能落地。</p>
+      <div class="hero-tags">
+        <span class="tag red">6 年班长</span>
+        <span class="tag">AI Agent 开发实战</span>
+        <span class="tag">创业项目负责人</span>
+        <span class="tag">供应链采购谈判</span>
+        <span class="tag">数据分析</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#experience">看我的经历 ↓</a>
+        <a class="btn btn-ghost" href="mailto:sx020619cf@163.com">联系我</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="badge">JD TET 候选人</span>
+      <div class="avatar-wrap"><img src="assets/avatar.jpg" alt="赵奕帆证件照"></div>
+      <div class="card-info">
+        <div class="row"><b>赵奕帆</b><span>中共党员</span></div>
+        <div class="row"><span>上海交通大学 · 硕士</span><span>西北农林科技大学 · 本科</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 数字墙 -->
+<div class="stats">
+  <div class="container stats-inner">
+    <div class="stat"><div class="num">6<small>年</small></div><div class="label">连续担任班长</div><div class="note">小学 · 初中 · 高中 · 本科 · 硕士</div></div>
+    <div class="stat"><div class="num">-15<small>%</small></div><div class="label">原料采购成本</div><div class="note">6 家供应商比价 · 建 3 家稳定渠道</div></div>
+    <div class="stat"><div class="num">+40<small>%</small></div><div class="label">团队工单效率</div><div class="note">AI 工单系统 · 零冲突零遗漏</div></div>
+    <div class="stat"><div class="num">万倍<small>级</small></div><div class="label">AI 推理提速</div><div class="note">9,170 基因 · 12,353 转录本</div></div>
+  </div>
+</div>
+
+<!-- 关于我 -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">About Me</div>
+      <h2 class="sec-title">关于我</h2>
+      <p class="sec-sub">一位从实验室走到谈判桌、再走到业务一线的「复合型」选手</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>我是赵奕帆,山西运城人,<b>中共党员</b>,上海交通大学园艺学(生物信息与合成生物学方向)硕士在读,本科毕业于西北农林科技大学草业科学专业。</p>
+        <p>从小学到硕士,我<b>连续担任班长</b>,这段经历让我早早明白:管理不是发号施令,而是<b>把复杂的事情拆解、分派、盯结果</b>,让团队中的每个人发挥所长。</p>
+        <p>在科研中,我独立开发了基于大语言模型的功能注释 Agent,用 <b>AI 把科研人员数天的等待压缩到几秒</b>;在创业中,我作为项目负责人从 0 到 1 搭建团队,靠<b>多维度比价与谈判把采购成本降了 15%</b>——我逐渐确信,技术与商业的交叉点,就是「确定性」。</p>
+        <p>这正是我选择京东的原因:<b>京东用供应链与自营把「复杂」做成「确定」</b>,而我,想成为那个用 AI 让确定性更进一步的人。</p>
+      </div>
+      <figure class="about-photo reveal">
+        <img src="assets/life.jpg" alt="赵奕帆生活照">
+        <figcaption>生活里也喜欢把每件事安排得明明白白</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 教育 -->
+<section id="education" class="alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Education</div>
+      <h2 class="sec-title">教育经历</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-time">2024.09 – 2027.03</div>
+        <div class="tl-title">上海交通大学 · 硕士研究生</div>
+        <div class="tl-sub">园艺学(生物信息与合成生物学方向) · 班长</div>
+        <div class="tl-body">主修生物信息学、合成生物学、统计学;2025 年获<b>上海交通大学三好学生</b>。</div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-time">2020.09 – 2024.06</div>
+        <div class="tl-title">西北农林科技大学 · 本科</div>
+        <div class="tl-sub">草业科学 · 班长 · 组织部负责人</div>
+        <div class="tl-body">主修 Python、概率论与数理统计、数据分析;获<b>专业一等奖学金 ×2</b>、校级优秀学生干部、校级优秀大学生。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 经历 -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Experience</div>
+      <h2 class="sec-title">核心经历</h2>
+      <p class="sec-sub">创业 × 组织 × 项目:每一段都指向同一件事——把事情做成</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="card-top"><span class="card-icon">创</span><span class="card-time">2025.11–2026.06</span></div>
+        <h3>酶制剂创业项目</h3>
+        <div class="role">上海市育得智造科技有限公司 · 项目负责人 &amp; 创始人</div>
+        <ul>
+          <li><b>市场洞察</b>:洞察千亿级产业风口,提出以嗜热毁丝霉为底盘细胞的酶制剂方案,<b>获创业基金支持</b></li>
+          <li><b>团队搭建</b>:组建 5 人跨学科团队(研发+运营+市场),制定 OKR 体系并主持周度经营复盘会</li>
+          <li><b>供应链谈判</b>:6 家供应商比价与实地考察,建立 3 家稳定渠道,<b>采购成本降低约 15%</b></li>
+          <li><b>AI 提效</b>:基于 OpenClaw 框架开发飞书 AI 机器人,实验数据自动处理、任务提醒、SOP 智能检索</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <div class="card-top"><span class="card-icon">组</span><span class="card-time">2021.09–2023.06</span></div>
+        <h3>学院组织部</h3>
+        <div class="role">西北农林科技大学草业与草原学院 · 负责人</div>
+        <ul>
+          <li><b>大型活动</b>:策划落地全院新生「一二·九主题团日活动」<b>200+ 人</b>、全校草地音乐节 <b>500+ 人</b></li>
+          <li><b>全流程把控</b>:策划案撰写、预算编制、物料采购、多部门协同推进</li>
+          <li><b>成本控制</b>:多方比价与供应商谈判,单次活动<b>节省经费约 15%</b></li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <div class="card-top"><span class="card-icon">班</span><span class="card-time">2010–2026</span></div>
+        <h3>连续 16 年学生干部</h3>
+        <div class="role">小学 → 初中 → 高中 → 本科 → 硕士 · 班长</div>
+        <ul>
+          <li>从小学到硕士<b>连续 6 段学习生涯担任班长</b>,在两个完全不同环境(西北农林、上交)反复获得同学信任</li>
+          <li>擅长<b>拆解任务、分派角色、盯结果</b>,统筹班级事务与科研行政多线并行</li>
+          <li>沉淀出「<b>让每个人发挥所长</b>」的带队方法论</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 项目 -->
+<section id="projects" class="alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Projects</div>
+      <h2 class="sec-title">AI 项目实战</h2>
+      <p class="sec-sub">两个从 0 到 1 的 AI 产品,一条「技术必须服务业务」的实践主线</p>
+    </div>
+    <div class="projects">
+      <div class="project reveal">
+        <h3>AI 智能工单与任务协同系统</h3>
+        <div class="role">2026.03–2026.06 · 负责人</div>
+        <p>基于飞书 CLI 与 OpenClaw 框架,接入 <b>GPT / Gemini</b> 多模型能力,独立开发智能工单系统,实现<b>任务创建→分配→追踪→归档全流程自动化</b>。</p>
+        <p>将研发、运营、市场多方需求统一纳入工单队列,通过优先级排序与资源占用可视化,使跨部门协作<b>零冲突、零遗漏</b>——该设计可迁移至<b>多供应商、多品类并行采购</b>场景。</p>
+        <div class="metrics">
+          <span class="metric">工单处理效率 +40%</span>
+          <span class="metric">跨部门零冲突</span>
+          <span class="metric">全流程自动化</span>
+        </div>
+      </div>
+      <div class="project reveal">
+        <h3>金针菇功能注释 Agent</h3>
+        <div class="role">2026.03–2026.06 · AI 智能体开发</div>
+        <p>独立完成<b>数据采集→清洗→建模→可视化</b>全链路管线,处理 <b>9,170 个基因、12,353 个转录本</b>的海量异构数据。</p>
+        <p>设计<b>三级级联推理架构</b>,推理速度较传统方法<b>提升数万倍</b>;基于大语言模型 + 多模态能力,让科研人员用自然语言即可获得可靠的基因功能注释。</p>
+        <div class="metrics">
+          <span class="metric">9,170 基因 / 12,353 转录本</span>
+          <span class="metric">推理提速数万倍</span>
+          <span class="metric">Streamlit 数据看板</span>
+        </div>
+      </div>
+      <div class="project reveal">
+        <h3>第三届基因育种算法大赛</h3>
+        <div class="role">2025.06–2025.12 · 模型负责人</div>
+        <p>主导 <b>CNN + Transformer</b> 混合算法模块,从海量数据中提取预测特征,模型泛化能力突出。</p>
+        <p>与团队协作完成混合模型构建,最终<b>斩获大赛优胜奖</b>——用算法能力验证了「AI × 生物」交叉路线的可行性。</p>
+        <div class="metrics">
+          <span class="metric">CNN + Transformer</span>
+          <span class="metric">大赛优胜奖</span>
+        </div>
+      </div>
+      <div class="project reveal">
+        <h3>创新创业大赛</h3>
+        <div class="role">2021–2023 · 核心成员</div>
+        <p>第七届<b>「互联网+」大学生创新创业大赛省级银奖</b>、第八届校级铜奖。</p>
+        <p>负责产品定位、市场分析与商业计划书撰写——学会用数据判断「这个需求值不值得做、怎么做才赚钱」,建立商业闭环思维。</p>
+        <div class="metrics">
+          <span class="metric">省级银奖</span>
+          <span class="metric">商业计划书</span>
+          <span class="metric">从 0 到 1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 技能 -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Skills</div>
+      <h2 class="sec-title">技能特长</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-block reveal">
+        <h3>数据分析</h3>
+        <div class="chips">
+          <span class="chip hot">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">PyTorch</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">Excel 透视表</span>
+        </div>
+      </div>
+      <div class="skill-block reveal">
+        <h3>AI 应用</h3>
+        <div class="chips">
+          <span class="chip hot">AI Agent 开发</span><span class="chip hot">自定义 Skill</span><span class="chip">飞书机器人</span><span class="chip">GPT / Claude / Gemini</span><span class="chip">Copilot / Codex</span><span class="chip">LLM + RAG</span>
+        </div>
+      </div>
+      <div class="skill-block reveal">
+        <h3>商务能力</h3>
+        <div class="chips">
+          <span class="chip hot">供应商开发</span><span class="chip hot">采购谈判</span><span class="chip">B 端客户对接</span><span class="chip">团队搭建</span><span class="chip">商业化运营</span><span class="chip">OKR 管理</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:72px">
+      <div class="sec-kicker">Honors</div>
+      <h2 class="sec-title">荣誉奖项</h2>
+    </div>
+    <div class="awards">
+      <div class="award reveal"><div class="ico">🏆</div><div class="t">互联网+ 创新创业大赛</div><div class="d">省级银奖 · 校级铜奖</div></div>
+      <div class="award reveal"><div class="ico">🧬</div><div class="t">基因育种算法大赛</div><div class="d">优胜奖(2025)</div></div>
+      <div class="award reveal"><div class="ico">🎓</div><div class="t">上海交通大学三好学生</div><div class="d">2025 年</div></div>
+      <div class="award reveal"><div class="ico">📚</div><div class="t">专业奖学金</div><div class="d">一等奖 ×2 · 二等奖</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" style="color:#FF6B60">Contact</div>
+      <h2 class="sec-title">与我联系</h2>
+      <p class="sec-sub">扫码查看本页 · 期待与您交流</p>
+    </div>
+    <div class="contact-items reveal">
+      <a class="contact-item" href="mailto:sx020619cf@163.com">
+        <div class="k">EMAIL</div><div class="v">sx020619cf@163.com</div>
+      </a>
+      <a class="contact-item" href="tel:15035977623">
+        <div class="k">PHONE</div><div class="v">150 3597 7623</div>
+      </a>
+    </div>
+    <div class="contact-qr reveal">
+      <div class="qr-box">
+        <img src="assets/qrcode.png" alt="作品集二维码">
+        <div class="hint">扫码查看作品集</div>
+      </div>
+    </div>
+    <p class="contact-note reveal">把复杂的事,做成确定的事 —— 期待在京东,把这件事做得更大。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© 2026 赵奕帆 · 个人作品集 · 把复杂的事,做成确定的事</div>
+</footer>
+
+<script>
+// 导航滚动高亮
+const sections = document.querySelectorAll('section[id], header[id]');
+const navAs = document.querySelectorAll('.nav-a');
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 140) current = s.id;
+  });
+  navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+});
+
+// 移动端菜单
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// 入场动画
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// 数字滚动
+const animNum = el => {
+  const text = el.textContent;
+  const m = text.match(/^(-?[\d.]+)(.*)$/);
+  if (!m) return;
+  const target = parseFloat(m[1]), suffix = m[2];
+  const neg = text.startsWith('-');
+  const start = performance.now(), dur = 1400;
+  const step = now => {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    let val = target * ease;
+    let shown;
+    if (Math.abs(target) < 100 && Number.isInteger(target)) shown = Math.round(val);
+    else shown = val.toFixed(0);
+    el.textContent = (neg && shown >= 0 ? '-' : '') + shown + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+};
+const statIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('.num').forEach(animNum); statIO.unobserve(e.target); } });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stat').forEach(s => statIO.observe(s));
+</script>
+</body>
+</html>
