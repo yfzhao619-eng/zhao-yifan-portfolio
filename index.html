@@ -193,6 +193,23 @@ section.alt{background:var(--bg-soft)}
   padding:6px 13px;border-radius:999px;
 }
 
+/* ---------- 作品展示图 ---------- */
+.shots{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.shots img{
+  width:104px;height:74px;object-fit:cover;border-radius:12px;
+  border:1px solid var(--line);cursor:zoom-in;transition:transform .22s, box-shadow .22s;
+  box-shadow:0 3px 10px rgba(31,31,31,.08);
+}
+.shots img:hover{transform:scale(1.07);box-shadow:0 8px 22px rgba(193,22,35,.25)}
+.shots.tall img{height:96px}
+.lightbox{
+  position:fixed;inset:0;background:rgba(15,15,15,.88);display:none;
+  align-items:center;justify-content:center;z-index:300;cursor:zoom-out;padding:4vh 4vw;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.lightbox .lb-hint{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:rgba(255,255,255,.65);font-size:13px}
+
 /* ---------- 技能 ---------- */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .skill-block{
@@ -408,6 +425,10 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:26px 0;font-size:13px;c
           <li><b>全流程把控</b>:策划案撰写、预算编制、物料采购、多部门协同推进</li>
           <li><b>成本控制</b>:多方比价与供应商谈判,单次活动<b>节省经费约 15%</b></li>
         </ul>
+        <div class="shots tall">
+          <img src="assets/work-concert-1.jpg" alt="草地音乐节现场1" loading="lazy">
+          <img src="assets/work-concert-2.jpg" alt="草地音乐节现场2" loading="lazy">
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-top"><span class="card-icon">班</span><span class="card-time">2010–2026</span></div>
@@ -442,6 +463,10 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:26px 0;font-size:13px;c
           <span class="metric">跨部门零冲突</span>
           <span class="metric">全流程自动化</span>
         </div>
+        <div class="shots">
+          <img src="assets/work-ticket-1.jpg" alt="智能工单系统截图1" loading="lazy">
+          <img src="assets/work-ticket-2.jpg" alt="智能工单系统截图2" loading="lazy">
+        </div>
       </div>
       <div class="project reveal">
         <h3>金针菇功能注释 Agent</h3>
@@ -452,6 +477,11 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:26px 0;font-size:13px;c
           <span class="metric">9,170 基因 / 12,353 转录本</span>
           <span class="metric">推理提速数万倍</span>
           <span class="metric">Streamlit 数据看板</span>
+        </div>
+        <div class="shots">
+          <img src="assets/work-agent-1.jpg" alt="基因功能注释Agent截图1" loading="lazy">
+          <img src="assets/work-agent-2.jpg" alt="基因功能注释Agent截图2" loading="lazy">
+          <img src="assets/work-agent-3.jpg" alt="基因功能注释Agent截图3" loading="lazy">
         </div>
       </div>
       <div class="project reveal">
@@ -575,6 +605,24 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// 作品展示图点击放大
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = '<img alt="作品展示大图"><span class="lb-hint">点击任意处关闭</span>';
+document.body.appendChild(lightbox);
+const lbImg = lightbox.querySelector('img');
+document.querySelectorAll('.shots img').forEach(img => {
+  img.addEventListener('click', e => {
+    e.stopPropagation();
+    lbImg.src = img.src;
+    lightbox.classList.add('open');
+  });
+});
+lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+});
 
 // 数字滚动
 const animNum = el => {
